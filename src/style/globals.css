@@ -45,3 +45,119 @@ svg {
 a {
   color: inherit;
 }
+
+/* ─── Smooth scroll ──────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
+
+/* ─── Shimmer skeleton (image placeholders) ─────────────────── */
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    #e8f0f7 0%,
+    #f4f8fc 40%,
+    #e8f0f7 80%
+  );
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* Apply shimmer automatically to any img that hasn't loaded */
+img:not([src]),
+img[src=""] {
+  background: linear-gradient(90deg,#e8f0f7 0%,#f4f8fc 40%,#e8f0f7 80%);
+  background-size: 1200px 100%;
+  animation: shimmer 1.6s infinite linear;
+  color: transparent;
+}
+
+/* ─── Morphing floating geometric shapes ─────────────────────── */
+/* Usage: add .geo-blob, .geo-ring, .geo-dot as decoration spans */
+
+@keyframes blobMorph {
+  0%, 100% { border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%; }
+  25%       { border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%; }
+  50%       { border-radius: 50% 60% 30% 40% / 40% 50% 60% 50%; }
+  75%       { border-radius: 40% 50% 60% 30% / 60% 40% 50% 40%; }
+}
+
+@keyframes floatUp {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50%       { transform: translateY(-18px) rotate(8deg); }
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.geo-blob {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  background: linear-gradient(135deg, rgba(42,167,255,0.12), rgba(27,66,129,0.07));
+  animation: blobMorph 8s ease-in-out infinite, floatUp 6s ease-in-out infinite;
+  will-change: border-radius, transform;
+}
+
+.geo-ring {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  border: 2px solid rgba(42,167,255,0.15);
+  animation: spinSlow 14s linear infinite;
+  will-change: transform;
+}
+
+.geo-dot {
+  position: absolute;
+  pointer-events: none;
+  border-radius: 50%;
+  background: rgba(255, 97, 74, 0.12);
+  animation: floatUp 5s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+/* ─── Sticky stacking sections ───────────────────────────────── */
+/* Wrap sections in .stack-scene; each gets .stack-card */
+.stack-scene {
+  position: relative;
+}
+
+.stack-card {
+  position: sticky;
+  top: 0;
+  border-radius: 20px 20px 0 0;
+  overflow: hidden;
+  /* shadow deepens as cards stack higher */
+  box-shadow: 0 -8px 40px rgba(27,60,116,0.08);
+  transition: transform 0.4s ease;
+  transform-origin: top center;
+}
+
+/* ─── Scroll-triggered count-up numbers (CSS only kick) ─────── */
+@keyframes countUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.count-trigger {
+  animation: countUp 0.55s ease both;
+}
+
+/* ─── Page transition fade (used by _app.jsx) ────────────────── */
+@keyframes pageFadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: none; }
+}
+
+.page-enter {
+  animation: pageFadeIn 0.45s ease both;
+}
+

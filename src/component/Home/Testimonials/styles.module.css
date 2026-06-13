@@ -1,0 +1,222 @@
+.testimonialsSection {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: 120px 0 140px;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.inner {
+  position: relative;
+  width: var(--site-width);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 64px;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-satoshi), sans-serif;
+  color: var(--color-coral, #ff684c);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.eyebrowLine {
+  display: inline-block;
+  width: 120px;
+  height: 2px;
+  border-radius: 30px;
+  background: var(--color-coral, #ff684c);
+}
+
+.title {
+  margin: 18px 0 0 0;
+  font-family: var(--font-satoshi), sans-serif;
+  color: var(--color-navy, #030f2f);
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 57.6px;
+  letter-spacing: -0.5px;
+}
+
+.navButtons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.navButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid #cfd8e3;
+  background: #ffffff;
+  color: #2aa7ff;
+  cursor: pointer;
+  transition: all 0.23s ease;
+}
+
+.navButton:hover {
+  background: #2aa7ff;
+  color: #ffffff;
+  border-color: #2aa7ff;
+  box-shadow: 0 5px 15px rgba(42, 167, 255, 0.2);
+}
+
+.carouselContainer {
+  position: relative;
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.testimonialWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 35px 30px;
+  box-sizing: border-box;
+  box-shadow: 0 10px 45px rgba(27, 60, 116, 0.05);
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #f2f6fc;
+}
+
+.quote {
+  margin: 0;
+  font-family: var(--font-satoshi), sans-serif;
+  color: #1b2d5a;
+  font-size: 17px;
+  line-height: 27px;
+  font-weight: 400;
+  letter-spacing: -0.1px;
+}
+
+.stars {
+  display: flex;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.starIcon {
+  flex-shrink: 0;
+}
+
+.authorMeta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-left: 8px;
+}
+
+.avatarWrap {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background-color: #e6ebef;
+}
+
+.avatar {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.authorInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.authorName {
+  margin: 0;
+  font-family: var(--font-satoshi), sans-serif;
+  color: var(--color-navy, #030f2f);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.authorRole {
+  margin: 2px 0 0 0;
+  font-family: var(--font-satoshi), sans-serif;
+  color: #727c8d;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+/* Responsive configurations */
+@media (max-width: 1200px) {
+  .inner {
+    padding: 0 30px;
+  }
+}
+
+@media (max-width: 992px) {
+  .grid {
+    grid-template-columns: 1fr;
+    max-width: 440px;
+    margin: 0 auto;
+    gap: 40px;
+  }
+  .header {
+    margin-bottom: 48px;
+  }
+}
+
+@media (max-width: 600px) {
+  .testimonialsSection {
+    padding: 80px 0 90px;
+  }
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+  .eyebrow {
+    font-size: 15px;
+  }
+  .eyebrowLine {
+    width: 60px;
+  }
+  .card {
+    padding: 28px 24px;
+    min-height: auto;
+  }
+}

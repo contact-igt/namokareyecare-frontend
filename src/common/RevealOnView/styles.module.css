@@ -1,0 +1,61 @@
+/* ─── Base hidden state ───────────────────────────────────────────── */
+.reveal {
+  will-change: transform, opacity;
+}
+
+/* Variant: fade up (default) */
+.fadeUp {
+  opacity: 0;
+  transform: translateY(36px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+/* Variant: fade in (no movement) */
+.fadeIn {
+  opacity: 0;
+  transition: opacity 0.65s ease;
+}
+
+/* Variant: slide from left */
+.fadeLeft {
+  opacity: 0;
+  transform: translateX(-40px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+/* Variant: slide from right */
+.fadeRight {
+  opacity: 0;
+  transform: translateX(40px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+/* Stagger — identical to fadeUp; children use --delay CSS variable */
+.stagger {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+/* ─── Revealed state ─────────────────────────────────────────────── */
+.visible {
+  opacity: 1 !important;
+  transform: none !important;
+}
+
+/* ─── Word-by-word reveal ────────────────────────────────────────── */
+.wordRevealRoot {
+  /* Keep inline layout */
+}
+
+.word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+}
+
+.wordVisible {
+  opacity: 1;
+  transform: none;
+}
