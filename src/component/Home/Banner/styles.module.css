@@ -1,0 +1,279 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: calc(var(--hero-height) + 104px);
+  overflow: hidden;
+  background: var(--color-hero-bg);
+}
+
+.heroInner {
+  position: relative;
+  display: grid;
+  grid-template-columns: 661px 659px;
+  align-items: start;
+  gap: 0;
+  width: 1320px;
+  height: 578.17px;
+  margin: 0 auto;
+  padding: 0;
+  transform: translateY(56.8px);
+}
+
+.copy {
+  align-self: start;
+  width: 661px;
+  padding-top: 4px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 29px;
+  font-family: var(--font-satoshi);
+  color: var(--color-coral);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.eyebrowLine {
+  display: inline-block;
+  width: 136px;
+  height: 2px;
+  background: var(--color-coral);
+}
+
+.title {
+  width: 661px;
+  margin: 0;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 80px;
+  font-weight: 500;
+  letter-spacing: -0.5px;
+  line-height: 88px;
+  vertical-align: middle;
+}
+
+.titleLine {
+  display: block;
+}
+
+.description {
+  max-width: 486px;
+  margin: 17px 0 0;
+  font-family: var(--font-satoshi);
+  color: #111111;
+  font-size: 21px;
+  font-weight: 500;
+  line-height: 42px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-width: 248px;
+  min-height: 56px;
+  margin-top: 31px;
+  border-radius: 999px;
+  background: var(--color-orange);
+  font-family: var(--font-satoshi);
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 12px 24px rgba(238, 119, 16, 0.12);
+}
+
+.visual {
+  position: relative;
+  width: 659px;
+  height: 578.17px;
+  align-self: end;
+}
+
+.imageHalo {
+  position: absolute;
+  right: 34px;
+  bottom: -14px;
+  width: 520px;
+  aspect-ratio: 1.23;
+  border-radius: 54% 54% 0 0;
+  background: linear-gradient(180deg, rgba(192, 229, 252, 0.86), rgba(187, 228, 252, 0.36));
+}
+
+.accentOne,
+.accentTwo,
+.accentThree {
+  position: absolute;
+  z-index: 4;
+  display: block;
+  width: 14px;
+  height: 50px;
+  border-radius: 999px;
+  background: #7fc8fb;
+}
+
+.accentOne {
+  top: 141px;
+  left: 128px;
+  transform: rotate(-10deg);
+}
+
+.accentTwo {
+  top: 130px;
+  left: 174px;
+  transform: rotate(33deg);
+}
+
+.accentThree {
+  top: 156px;
+  left: 224px;
+  height: 56px;
+  transform: rotate(62deg);
+}
+
+.heroImage {
+  position: absolute;
+  right: 0;
+  top: 90px;
+  z-index: 5;
+  display: block;
+  width: 659px;
+  height: auto;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+@media (max-width: 1280px) {
+  .hero {
+    height: var(--hero-height);
+  }
+
+  .heroInner {
+    width: min(100%, calc(var(--site-width) - 40px));
+    height: auto;
+    grid-template-columns: minmax(380px, 0.92fr) minmax(420px, 1.08fr);
+    gap: 24px;
+    transform: none;
+    padding-top: 20px;
+  }
+
+  .title {
+    width: auto;
+    font-size: clamp(62px, 6vw, 78px);
+    line-height: 1.06;
+  }
+
+  .description {
+    margin-top: 18px;
+    font-size: 21px;
+    line-height: 1.4;
+  }
+
+  .copy {
+    width: auto;
+    padding-top: 0;
+  }
+
+  .visual {
+    width: auto;
+    min-height: 560px;
+  }
+
+  .heroImage {
+    width: min(100%, 580px);
+  }
+}
+
+@media (max-width: 980px) {
+  .hero {
+    min-height: auto;
+    height: auto;
+  }
+
+  .heroInner {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    height: auto;
+    width: 100%;
+    padding-top: 64px;
+  }
+
+  .copy {
+    padding-bottom: 0;
+  }
+
+  .title {
+    max-width: 760px;
+    font-size: clamp(52px, 8vw, 76px);
+  }
+
+  .visual {
+    min-height: 560px;
+  }
+
+  .imageHalo {
+    right: 50%;
+    width: min(72%, 560px);
+    transform: translateX(50%);
+  }
+
+  .heroImage {
+    right: 50%;
+    width: min(86%, 540px);
+    transform: translateX(50%);
+  }
+}
+
+@media (max-width: 640px) {
+  .heroInner {
+    padding: 44px 20px 0;
+  }
+
+  .eyebrow {
+    gap: 12px;
+    margin-bottom: 24px;
+    font-size: 15px;
+  }
+
+  .eyebrowLine {
+    width: 72px;
+  }
+
+  .title {
+    font-size: clamp(42px, 12vw, 58px);
+  }
+
+  .description {
+    font-size: 18px;
+  }
+
+  .cta {
+    min-width: 100%;
+    margin-top: 30px;
+  }
+
+  .visual {
+    min-height: 430px;
+  }
+
+  .accentOne {
+    top: 80px;
+    left: 24%;
+  }
+
+  .accentTwo {
+    top: 66px;
+    left: 35%;
+  }
+
+  .accentThree {
+    top: 96px;
+    left: 44%;
+  }
+}

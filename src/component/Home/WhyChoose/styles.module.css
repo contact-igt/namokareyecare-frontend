@@ -1,0 +1,271 @@
+.whyChoose {
+  position: relative;
+  width: 100%;
+  height: 659.59px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 695px 1fr;
+  gap: 74px;
+  width: var(--site-width);
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 74px;
+}
+
+.collage {
+  position: relative;
+  width: 695px;
+  height: 535px;
+}
+
+.photo {
+  position: absolute;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #eef6fa;
+  background-image: var(--photo-src);
+  background-position: center;
+  background-size: cover;
+  box-shadow: none;
+}
+
+.large {
+  left: 0;
+  top: 87px;
+  width: 338px;
+  height: 339px;
+}
+
+.top {
+  left: 358px;
+  top: 0;
+  width: 337px;
+  height: 264px;
+}
+
+.bottom {
+  left: 358px;
+  top: 283px;
+  width: 337px;
+  height: 263px;
+}
+
+.copy {
+  width: 520px;
+  padding-top: 20px;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-family: var(--font-satoshi);
+  color: var(--color-coral);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.eyebrowLine {
+  display: inline-block;
+  width: 157px;
+  height: 2px;
+  background: var(--color-coral);
+}
+
+.title {
+  margin: 30px 0 0;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 62px;
+  letter-spacing: -0.5px;
+}
+
+.description {
+  max-width: 483px;
+  margin: 17px 0 0;
+  font-family: var(--font-satoshi);
+  color: #738096;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.list {
+  display: grid;
+  gap: 18px;
+  margin: 36px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.listIcon {
+  flex: 0 0 auto;
+  color: var(--color-coral);
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-width: 164px;
+  min-height: 52px;
+  margin-top: 54px;
+  border: 1.5px solid #2da7ff;
+  border-radius: 999px;
+  background: #ffffff;
+  font-family: var(--font-satoshi);
+  color: #168eff;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+}
+
+.leftGlow {
+  position: absolute;
+  left: -226px;
+  top: 112px;
+  width: 470px;
+  height: 470px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(232, 247, 253, 0.92) 0 44%, rgba(232, 247, 253, 0.58) 45% 54%, rgba(232, 247, 253, 0.16) 55% 68%, transparent 69%);
+}
+
+.circleOne,
+.circleTwo {
+  position: absolute;
+  z-index: 1;
+  border-radius: 50%;
+  background: rgba(255, 97, 74, 0.1);
+}
+
+.circleOne {
+  right: -33px;
+  top: 245px;
+  width: 238px;
+  height: 238px;
+}
+
+.circleTwo {
+  right: -103px;
+  top: 319px;
+  width: 240px;
+  height: 240px;
+}
+
+@media (max-width: 1400px) {
+  .inner {
+    width: min(100%, calc(var(--site-width) - 40px));
+    grid-template-columns: minmax(500px, 612px) 1fr;
+    gap: 54px;
+  }
+
+  .collage {
+    transform-origin: left top;
+    transform: scale(0.88);
+  }
+}
+
+@media (max-width: 1080px) {
+  .whyChoose {
+    height: auto;
+    min-height: 659.59px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 34px;
+    padding: 72px 24px 96px;
+  }
+
+  .collage {
+    width: 100%;
+    height: 470px;
+    transform: none;
+  }
+
+  .large {
+    left: 0;
+    width: 48%;
+  }
+
+  .top,
+  .bottom {
+    left: auto;
+    right: 0;
+    width: 48%;
+  }
+
+  .copy {
+    width: min(100%, 620px);
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  .inner {
+    padding: 58px 20px 76px;
+  }
+
+  .collage {
+    height: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .photo,
+  .large,
+  .top,
+  .bottom {
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: 230px;
+  }
+
+  .eyebrow {
+    gap: 12px;
+    font-size: 15px;
+    line-height: 22px;
+  }
+
+  .eyebrowLine {
+    width: 72px;
+  }
+
+  .title {
+    font-size: 42px;
+    line-height: 50px;
+  }
+
+  .description {
+    font-size: 17px;
+    line-height: 28px;
+  }
+
+  .listItem {
+    font-size: 18px;
+  }
+}

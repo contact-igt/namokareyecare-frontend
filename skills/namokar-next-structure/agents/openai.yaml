@@ -1,0 +1,4 @@
+interface:
+  display_name: "Namokar Next Structure"
+  short_description: "Create Namokar pages using the agreed Next.js folder structure."
+  default_prompt: "Use this skill to create or review Namokar Next.js website files with the agreed Pages Router structure."

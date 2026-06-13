@@ -1,0 +1,231 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  height: var(--header-height);
+  background: var(--color-hero-bg);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 42px;
+  width: min(100%, var(--site-width));
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  text-decoration: none;
+}
+
+.logo {
+  display: block;
+  width: 190px;
+  height: auto;
+  flex: 0 1 auto;
+}
+
+.badgeShell {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 62px;
+  min-width: 62px;
+  aspect-ratio: 500 / 273;
+}
+
+.badge {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+}
+
+.navLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.appointment,
+.mobileAppointment {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  min-height: 68px;
+  border-radius: 999px;
+  background: var(--color-orange);
+  font-family: var(--font-satoshi);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 12px 24px rgba(238, 119, 16, 0.12);
+}
+
+.appointment {
+  justify-self: end;
+  min-width: 202px;
+  min-height: 53px;
+  padding: 0 25px;
+  gap: 12px;
+  font-size: 16px;
+}
+
+.menuButton {
+  display: none;
+  justify-self: end;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 999px;
+  background: #ffffff;
+  color: var(--color-navy);
+  cursor: pointer;
+  box-shadow: 0 10px 30px rgba(17, 52, 107, 0.08);
+}
+
+.mobilePanel {
+  display: none;
+}
+
+@media (max-width: 1180px) {
+  .header {
+    height: 118px;
+  }
+
+  .inner {
+    grid-template-columns: minmax(300px, 1fr) auto auto;
+    padding-inline: clamp(18px, 3vw, 32px);
+  }
+
+  .nav {
+    gap: 24px;
+  }
+
+  .navLink {
+    font-size: 18px;
+  }
+
+  .logo {
+    width: 236px;
+  }
+
+  .badgeShell {
+    width: 84px;
+    min-width: 84px;
+  }
+
+  .appointment {
+    min-width: 218px;
+    min-height: 58px;
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 920px) {
+  .header {
+    height: 94px;
+  }
+
+  .inner {
+    grid-template-columns: 1fr auto;
+    padding-inline: 26px;
+  }
+
+  .nav,
+  .appointment {
+    display: none;
+  }
+
+  .menuButton {
+    display: inline-flex;
+  }
+
+  .mobilePanel {
+    display: block;
+    width: min(calc(100% - 32px), 440px);
+    max-height: 0;
+    margin: 12px auto 0;
+    overflow: hidden;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 22px 50px rgba(17, 52, 107, 0.14);
+    transition: max-height 180ms ease;
+  }
+
+  .mobilePanelOpen {
+    max-height: 430px;
+  }
+
+  .mobileNav {
+    display: grid;
+    gap: 2px;
+    padding: 14px;
+  }
+
+  .mobileLink {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 46px;
+    border-radius: 12px;
+    padding: 0 14px;
+    color: var(--color-navy);
+    font-size: 16px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .mobileAppointment {
+    margin-top: 8px;
+    min-height: 48px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 560px) {
+  .inner {
+    padding-inline: 18px;
+  }
+
+  .logo {
+    width: min(54vw, 196px);
+  }
+
+  .badgeShell {
+    width: 74px;
+    min-width: 74px;
+  }
+
+  .brand {
+    gap: 8px;
+  }
+}

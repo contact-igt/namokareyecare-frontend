@@ -1,0 +1,417 @@
+.process {
+  position: relative;
+  width: 100%;
+  height: 865px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.inner {
+  position: relative;
+  z-index: 2;
+  width: min(100%, 1640px);
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 158px;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  font-family: var(--font-satoshi);
+  color: var(--color-coral);
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.eyebrowLine {
+  display: block;
+  width: 213px;
+  height: 2px;
+  background: var(--color-coral);
+}
+
+.title {
+  margin: 31px 0 0;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 68px;
+  font-weight: 500;
+  line-height: 82px;
+  letter-spacing: 0;
+  text-align: center;
+}
+
+.timeline {
+  position: relative;
+  margin-top: 94px;
+}
+
+.steps {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 54px;
+  align-items: start;
+}
+
+.step {
+  min-width: 0;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.visible .step {
+  animation: stepReveal 720ms cubic-bezier(0.2, 0.75, 0.22, 1) var(--delay) forwards;
+}
+
+.imageWrap {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+.imageWrap::after {
+  position: absolute;
+  inset: -5px;
+  z-index: -1;
+  border-radius: 50%;
+  background: rgba(69, 190, 246, 0.16);
+  content: "";
+  opacity: 0;
+  transform: scale(0.82);
+}
+
+.visible .imageWrap::after {
+  animation: pulseHalo 1500ms ease-out calc(var(--delay) + 260ms) both;
+}
+
+.stepImage {
+  display: block;
+  width: 170px;
+  height: 170px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 32px;
+  right: -9px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #45bef6;
+  font-family: var(--font-satoshi);
+  color: #ffffff;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.stepTitle {
+  margin: 43px 0 0;
+  font-family: var(--font-satoshi);
+  color: var(--color-navy);
+  font-size: 30px;
+  font-weight: 500;
+  line-height: 38px;
+  letter-spacing: 0;
+}
+
+.stepText {
+  max-width: 330px;
+  margin: 17px auto 0;
+  font-family: var(--font-satoshi);
+  color: #738096;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 28px;
+  letter-spacing: 0;
+}
+
+.arrows {
+  position: absolute;
+  left: 50%;
+  top: 12px;
+  z-index: 1;
+  width: 1640px;
+  height: 180px;
+  transform: translateX(-50%);
+  overflow: visible;
+}
+
+.arrowPath {
+  stroke: #21b9ff;
+  stroke-width: 3.25;
+  stroke-linecap: round;
+  stroke-dasharray: 2 10;
+  stroke-dashoffset: 160;
+  opacity: 0;
+  filter: drop-shadow(0 4px 10px rgba(69, 190, 246, 0.42));
+}
+
+.visible .arrowPath {
+  animation:
+    fadeArrow 420ms ease var(--arrow-delay) forwards,
+    travelDots 1300ms linear calc(var(--arrow-delay) + 260ms) infinite;
+}
+
+.arrowOne {
+  --arrow-delay: 260ms;
+}
+
+.arrowTwo {
+  --arrow-delay: 700ms;
+}
+
+.arrowThree {
+  --arrow-delay: 1140ms;
+}
+
+.movingArrow {
+  opacity: 0;
+  filter: drop-shadow(0 8px 14px rgba(69, 190, 246, 0.42));
+}
+
+.visible .movingArrow {
+  animation: arrowButtonReveal 380ms ease var(--moving-arrow-delay) forwards;
+}
+
+.movingArrowOne {
+  --moving-arrow-delay: 250ms;
+}
+
+.movingArrowTwo {
+  --moving-arrow-delay: 750ms;
+}
+
+.movingArrowThree {
+  --moving-arrow-delay: 1250ms;
+}
+
+.movingArrowCircle {
+  fill: #45bef6;
+  stroke: rgba(255, 255, 255, 0.86);
+  stroke-width: 3;
+}
+
+.movingArrowIcon {
+  fill: none;
+  stroke: #ffffff;
+  stroke-width: 3;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ringOuter,
+.ringMiddle,
+.ringInner {
+  position: absolute;
+  left: 50%;
+  bottom: -618px;
+  border-radius: 50% 50% 0 0;
+  background: rgba(197, 234, 255, 0.47);
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.ringOuter {
+  width: 1300px;
+  height: 650px;
+}
+
+.ringMiddle {
+  bottom: -516px;
+  width: 1010px;
+  height: 505px;
+  background: rgba(175, 224, 253, 0.38);
+}
+
+.ringInner {
+  bottom: -418px;
+  width: 716px;
+  height: 358px;
+  background: rgba(154, 215, 250, 0.34);
+}
+
+@keyframes stepReveal {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeArrow {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes travelDots {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -88;
+  }
+}
+
+@keyframes arrowButtonReveal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulseHalo {
+  from {
+    opacity: 0.65;
+    transform: scale(0.82);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(1.22);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .step,
+  .arrowPath,
+  .movingArrow,
+  .visible .step,
+  .visible .arrowPath,
+  .visible .movingArrow,
+  .visible .imageWrap::after {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .movingArrow {
+    display: none;
+  }
+}
+
+@media (max-width: 1500px) {
+  .inner {
+    width: min(100%, calc(var(--site-width) - 40px));
+  }
+
+  .title {
+    font-size: 58px;
+    line-height: 70px;
+  }
+
+  .steps {
+    gap: 28px;
+  }
+
+  .stepTitle {
+    font-size: 27px;
+    line-height: 34px;
+  }
+
+  .stepText {
+    font-size: 20px;
+    line-height: 27px;
+  }
+
+  .arrows {
+    width: 100%;
+    height: 160px;
+    transform: translateX(-50%) scaleX(0.99);
+  }
+}
+
+@media (max-width: 1080px) {
+  .process {
+    height: auto;
+    min-height: 865px;
+  }
+
+  .inner {
+    padding: 96px 24px 120px;
+  }
+
+  .title {
+    font-size: 48px;
+    line-height: 58px;
+  }
+
+  .timeline {
+    margin-top: 64px;
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: 58px;
+  }
+
+  .arrows {
+    display: none;
+  }
+
+  .ringOuter {
+    width: 960px;
+  }
+}
+
+@media (max-width: 680px) {
+  .inner {
+    padding: 74px 20px 96px;
+  }
+
+  .eyebrow {
+    gap: 12px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+
+  .eyebrowLine {
+    width: 72px;
+  }
+
+  .title {
+    font-size: 40px;
+    line-height: 48px;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+
+  .stepTitle {
+    margin-top: 28px;
+  }
+
+  .stepText {
+    max-width: 320px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
