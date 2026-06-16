@@ -1,5 +1,9 @@
+"use client";
+
+import { useRef } from "react";
 import Image from "next/image";
-import { Clock3, Copy, Microscope, Stethoscope } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { Clock3, Copy, Microscope, Stethoscope, History } from "lucide-react";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
 
@@ -8,11 +12,15 @@ const cardIcons = {
   microscope: Microscope,
   stethoscope: Stethoscope,
   support: Clock3,
+  history: History,
 };
 
 export default function TreatmentVideo() {
   const { eyebrow, title, cards, media, sparkle, arrow } =
     homeContent.treatmentVideo;
+
+  const videoRef = useRef(null);
+  const isVideoInView = useInView(videoRef, { once: true, amount: 0.5 });
 
   return (
     <section
@@ -39,14 +47,30 @@ export default function TreatmentVideo() {
             aria-hidden="true"
           />
 
-          <div className={styles.cards}>
+          <motion.div 
+            className={styles.cards}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, amount: 0.2 }}
+            variants={{
+              hidden: { opacity: 0 },
+              show: {
+                opacity: 1,
+                transition: { staggerChildren: 0.15 },
+              },
+            }}
+          >
             {cards.map((card) => {
               const Icon = cardIcons[card.icon] ?? Copy;
 
               return (
-                <article
+                <motion.article
                   key={card.title}
                   className={`${styles.card} ${styles[card.variant]}`}
+                  variants={{
+                    hidden: { opacity: 0, y: 30 },
+                    show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+                  }}
                 >
                   <div className={styles.cardHeader}>
                     <span className={styles.iconBox} aria-hidden="true">
@@ -55,21 +79,24 @@ export default function TreatmentVideo() {
                     <h3 className={styles.cardTitle}>{card.title}</h3>
                   </div>
                   <p className={styles.cardText}>{card.description}</p>
-                </article>
+                </motion.article>
               );
             })}
-          </div>
+          </motion.div>
         </div>
 
         <div className={styles.rightContainer}>
-          <div className={styles.videoWrap}>
-            <iframe
-              className={styles.youtubeFrame}
-              src={media.youtubeEmbedUrl}
-              title="Namokar Eye video"
-              allow="autoplay; encrypted-media; picture-in-picture; web-share"
-              allowFullScreen
-            />
+          <div className={styles.videoWrap} ref={videoRef}>
+            {isVideoInView && (
+              <iframe
+                className={styles.youtubeFrame}
+                src={`${media.youtubeEmbedUrl}&autoplay=1&mute=1`}
+                title="Namokar Eye video"
+                loading="lazy"
+                allow="autoplay; encrypted-media; picture-in-picture; web-share"
+                allowFullScreen
+              />
+            )}
           </div>
 
           {/* Curved Arrow Image */}

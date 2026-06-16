@@ -11,8 +11,8 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 42px;
-  width: min(100%, var(--site-width));
+  gap: 54px;
+  width: min(calc(100% - 56px), 1468px);
   height: 100%;
   margin: 0 auto;
   padding: 0;
@@ -21,50 +21,33 @@
 .brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
   min-width: 0;
   text-decoration: none;
 }
 
 .logo {
   display: block;
-  width: 190px;
+  width: clamp(252px, 14.5vw, 296px);
   height: auto;
   flex: 0 1 auto;
-}
-
-.badgeShell {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 62px;
-  min-width: 62px;
-  aspect-ratio: 500 / 273;
-}
-
-.badge {
-  display: block;
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
 }
 
 .nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 40px;
+  gap: 46px;
 }
 
 .navLink {
   display: inline-flex;
   align-items: center;
-  gap: 9px;
+  gap: 10px;
   font-family: var(--font-satoshi);
   color: var(--color-navy);
   font-size: 18px;
   font-weight: 500;
-  line-height: 27px;
+  line-height: 1;
   text-decoration: none;
   white-space: nowrap;
 }
@@ -90,11 +73,11 @@
 
 .appointment {
   justify-self: end;
-  min-width: 202px;
-  min-height: 53px;
-  padding: 0 25px;
+  min-width: 208px;
+  min-height: 56px;
+  padding: 0 30px;
   gap: 12px;
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .menuButton {
@@ -118,11 +101,11 @@
 
 @media (max-width: 1180px) {
   .header {
-    height: 118px;
+    height: 90px;
   }
 
   .inner {
-    grid-template-columns: minmax(300px, 1fr) auto auto;
+    grid-template-columns: minmax(240px, 1fr) auto auto;
     padding-inline: clamp(18px, 3vw, 32px);
   }
 
@@ -135,17 +118,12 @@
   }
 
   .logo {
-    width: 236px;
-  }
-
-  .badgeShell {
-    width: 84px;
-    min-width: 84px;
+    width: min(30vw, 258px);
   }
 
   .appointment {
-    min-width: 218px;
-    min-height: 58px;
+    min-width: 196px;
+    min-height: 52px;
     font-size: 17px;
   }
 }
@@ -217,15 +195,6 @@
   }
 
   .logo {
-    width: min(54vw, 196px);
-  }
-
-  .badgeShell {
-    width: 74px;
-    min-width: 74px;
-  }
-
-  .brand {
-    gap: 8px;
+    width: min(58vw, 224px);
   }
 }

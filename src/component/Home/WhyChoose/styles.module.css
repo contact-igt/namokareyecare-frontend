@@ -1,7 +1,9 @@
 .whyChoose {
   position: relative;
   width: 100%;
-  height: 659.59px;
+  height: auto;
+  min-height: 660px;
+  padding-bottom: 120px;
   overflow: hidden;
   background: #ffffff;
 }
@@ -87,6 +89,7 @@
   font-weight: 500;
   line-height: 62px;
   letter-spacing: -0.5px;
+  white-space: pre-wrap;
 }
 
 .description {

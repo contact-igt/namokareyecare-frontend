@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
-import { ArrowLeft, ArrowRight, Star } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star, StarHalf } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { testimonialsContent } from "@/constant/testimonialsContent";
 import RevealOnView from "@/common/RevealOnView";
 import styles from "./styles.module.css";
@@ -8,38 +9,38 @@ import styles from "./styles.module.css";
 export default function Testimonials() {
   const { eyebrow, title, reviews } = testimonialsContent;
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
   const autoScrollTimer = useRef(null);
 
   const totalReviews = reviews.length;
 
-  const startAutoScroll = () => {
-    stopAutoScroll();
-    autoScrollTimer.current = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % totalReviews);
-    }, 4500); // Auto-scroll interval (4.5 seconds)
-  };
-
   const stopAutoScroll = () => {
     if (autoScrollTimer.current) {
       clearInterval(autoScrollTimer.current);
+      autoScrollTimer.current = null;
     }
   };
 
   useEffect(() => {
-    startAutoScroll();
+    stopAutoScroll();
+
+    if (isPaused) {
+      return undefined;
+    }
+
+    autoScrollTimer.current = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % totalReviews);
+    }, 4500);
+
     return () => stopAutoScroll();
-  }, []);
+  }, [isPaused, totalReviews]);
 
   const handlePrev = () => {
-    stopAutoScroll();
     setActiveIndex((prev) => (prev - 1 + totalReviews) % totalReviews);
-    startAutoScroll();
   };
 
   const handleNext = () => {
-    stopAutoScroll();
     setActiveIndex((prev) => (prev + 1) % totalReviews);
-    startAutoScroll();
   };
 
   // Calculate visible range of 3 items for larger screens or sliding window
@@ -86,26 +87,36 @@ export default function Testimonials() {
         </RevealOnView>
 
         {/* Carousel Tracks */}
-        <div className={styles.carouselContainer} onMouseEnter={stopAutoScroll} onMouseLeave={startAutoScroll}>
+        <div
+          className={styles.carouselContainer}
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           <div className={styles.grid}>
-            {getVisibleReviews().map((review, i) => (
-              <div
-                key={`${review.id}-${i}`}
-                className={styles.testimonialWrapper}
-              >
+            <AnimatePresence mode="popLayout">
+              {getVisibleReviews().map((review) => (
+                <motion.div
+                  key={review.id}
+                  layout
+                  initial={{ opacity: 0, x: 50 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -50 }}
+                  transition={{ duration: 0.5, ease: "easeInOut" }}
+                  className={styles.testimonialWrapper}
+                >
                 {/* Review Card */}
                 <div className={styles.card}>
                   <p className={styles.quote}>&ldquo;{review.quote}&rdquo;</p>
                   <div className={styles.stars}>
-                    {[...Array(review.stars)].map((_, idx) => (
-                      <Star
-                        key={idx}
-                        size={16}
-                        fill="#2aa7ff"
-                        color="#2aa7ff"
-                        className={styles.starIcon}
-                      />
-                    ))}
+                    {[...Array(5)].map((_, idx) => {
+                      if (idx < Math.floor(review.stars)) {
+                        return <Star key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
+                      } else if (idx < Math.ceil(review.stars)) {
+                        return <StarHalf key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
+                      } else {
+                        return <Star key={idx} size={16} color="#cfd8e3" className={styles.starIcon} />;
+                      }
+                    })}
                   </div>
                 </div>
 
@@ -125,8 +136,9 @@ export default function Testimonials() {
                     <p className={styles.authorRole}>{review.author.role}</p>
                   </div>
                 </div>
-              </div>
-            ))}
+                </motion.div>
+              ))}
+            </AnimatePresence>
           </div>
         </div>
       </div>

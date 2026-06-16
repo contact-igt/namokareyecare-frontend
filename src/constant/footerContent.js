@@ -2,16 +2,11 @@ export const footerContent = {
   logo: {
     src: "/assets/Footer/LOGO.png",
     alt: "Namokar Eye & Oculoplasty Centre",
-    width: 250,
-    height: 60,
+    width: 1120,
+    height: 428,
   },
-  badge: {
-    src: "/assets/Footer/Patient_saftey_logo.png",
-    alt: "Patient Safety & Quality of Care Certified Badge",
-    width: 80,
-    height: 80,
-  },
-  tagline: "At Hospital we are committed to providing the highest standard of medical services and cutting-edge treatments.",
+  tagline:
+    "Dedicated to providing expert eye care with advanced ophthalmic and oculoplasty treatments to ensure your vision, well-being, and a healthier future.",
   links: {
     title: "Links",
     items: [
@@ -26,28 +21,24 @@ export const footerContent = {
   hours: {
     title: "Opening Hours",
     schedule: [
-      { days: "Mon - Tues:", hours: "8 AM - 5 PM" },
-      { days: "Wed - Thu:", hours: "8 AM - 5 PM" },
-      { days: "Fri - Sat:", hours: "8 AM - 5 PM" },
-      { days: "Sunday:", hours: "Emergency Only" },
-      { days: "Personal:", hours: "8 AM - 5 PM" },
+      { days: "Mon - Sat:", hours: "9 AM - 4 PM" },
+      { days: "Sunday:", hours: "Closed" },
     ],
   },
   contact: {
     address: {
       title: "Address",
-      value: "4321 Truxel Rd.\nSacramento, CA 95834",
+      value:
+        "13 A, near SATYAWATI COLLEGE,\nopposite Madrina Restaurant, Pocket A,\nPhase 3, Ashok Vihar, Delhi, 110052",
     },
     phone: {
       title: "Phone",
-      numbers: ["+1-123-456-7890", "+1-123-456-7890"],
+      numbers: ["+91-9810419720"],
     },
   },
-  copyright: "© 2023 by FramerDevs",
+  copyright: "© 2026",
   socials: [
     { platform: "facebook", href: "https://facebook.com", icon: "facebook" },
-    { platform: "twitter", href: "https://twitter.com", icon: "twitter" },
-    { platform: "pinterest", href: "https://pinterest.com", icon: "pinterest" },
     { platform: "linkedin", href: "https://linkedin.com", icon: "linkedin" },
   ],
 };

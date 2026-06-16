@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect, useRef, useState } from "react";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
 
@@ -32,11 +33,78 @@ function StarCluster() {
   );
 }
 
-export default function Stats() {
-  const { eyebrow, title, background, heart, items } = homeContent.stats;
+function AnimatedValue({ item, active }) {
+  const [displayValue, setDisplayValue] = useState(0);
+
+  useEffect(() => {
+    if (!active || typeof item.countTo !== "number") {
+      return undefined;
+    }
+
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReducedMotion) {
+      setDisplayValue(item.countTo);
+      return undefined;
+    }
+
+    const duration = item.durationMs ?? 1400;
+    const start = performance.now();
+    let frameId = 0;
+
+    const tick = (now) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - (1 - progress) * (1 - progress) * (1 - progress);
+      setDisplayValue(item.countTo * eased);
+
+      if (progress < 1) {
+        frameId = window.requestAnimationFrame(tick);
+      }
+    };
+
+    frameId = window.requestAnimationFrame(tick);
+    return () => window.cancelAnimationFrame(frameId);
+  }, [active, item]);
+
+  const formattedValue =
+    typeof item.countTo === "number"
+      ? displayValue.toFixed(item.decimals ?? 0)
+      : item.value;
 
   return (
-    <section className={styles.stats} aria-labelledby="stats-title">
+    <strong className={styles.value}>
+      {formattedValue}
+      {item.valueSuffix ? <span className={styles.valueSuffix}>{item.valueSuffix}</span> : null}
+    </strong>
+  );
+}
+
+export default function Stats() {
+  const { eyebrow, title, background, heart, items } = homeContent.stats;
+  const sectionRef = useRef(null);
+  const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {
+    const node = sectionRef.current;
+    if (!node) {
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsActive(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className={styles.stats} aria-labelledby="stats-title">
       <div className={styles.inner}>
         <Image
           src={background.src}
@@ -73,16 +141,19 @@ export default function Stats() {
 
         <div className={styles.grid}>
           {items.map((item) => (
-            <article className={styles.item} key={item.label}>
+            <article
+              className={`${styles.item} ${item.variant ? styles[item.variant] : ""}`}
+              key={item.label}
+            >
               <Image
                 src={item.icon.src}
                 alt={item.icon.alt}
                 width={item.icon.width}
                 height={item.icon.height}
-                className={styles.icon}
+                className={`${styles.icon} ${item.icon.className ? styles[item.icon.className] : ""}`}
                 aria-hidden="true"
               />
-              <strong className={styles.value}>{item.value}</strong>
+              {item.value ? <AnimatedValue item={item} active={isActive} /> : null}
               <span className={styles.label}>{item.label}</span>
             </article>
           ))}

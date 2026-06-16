@@ -15,7 +15,7 @@ export const testimonialsContent = {
     {
       id: 2,
       quote: "Incredible medical landing page! Easy to navigate, reliable info. A go-to for health insights.",
-      stars: 5,
+      stars: 4.8,
       author: {
         name: "Carter Lee",
         role: "Fitness Instructor",
@@ -25,7 +25,7 @@ export const testimonialsContent = {
     {
       id: 3,
       quote: "Found exactly what I needed! Clear, concise, and user-friendly. Highly recommen",
-      stars: 5,
+      stars: 4.6,
       author: {
         name: "Jenny Wilson",
         role: "Product Designer",
@@ -35,7 +35,7 @@ export const testimonialsContent = {
     {
       id: 4,
       quote: "The doctors are extremely friendly and qualified. They provided exceptional advice and care for my watering treatment.",
-      stars: 5,
+      stars: 4,
       author: {
         name: "Albert Flores",
         role: "Creative Director",

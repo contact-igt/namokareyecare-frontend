@@ -1,16 +1,17 @@
 .stats {
   position: relative;
   width: 100%;
-  min-height: 575px;
+  min-height: 655px;
   overflow: hidden;
   background: #ffffff;
-  padding: 130px 0 65px;
+  padding: 150px 0 92px;
 }
 
 .inner {
   position: relative;
-  width: var(--site-width);
-  height: 380px;
+  width: min(calc(100% - 64px), 1460px);
+  height: auto;
+  min-height: 418px;
   max-width: 100%;
   margin: 0 auto;
 }
@@ -23,6 +24,7 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
+  transform: scale(1.04);
   pointer-events: none;
 }
 
@@ -56,20 +58,20 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 25px 0 0;
+  margin: 28px 0 0;
   font-family: var(--font-satoshi);
   color: var(--color-navy);
-  font-size: 48px;
+  font-size: 46px;
   font-weight: 500;
-  line-height: 57.6px;
+  line-height: 55px;
   letter-spacing: -0.2px;
   text-align: center;
 }
 
 .starCluster {
   position: absolute;
-  top: 55px;
-  left: 274px;
+  top: 62px;
+  left: 284px;
   z-index: 2;
   width: 30px;
   height: 30px;
@@ -79,8 +81,8 @@
 
 .heart {
   position: absolute;
-  top: 22px;
-  left: 1032px;
+  top: 28px;
+  left: 1140px;
   z-index: 2;
   width: 62px;
   height: auto;
@@ -93,14 +95,15 @@
   z-index: 2;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-  margin-top: 93px;
+  gap: 52px;
+  margin-top: 116px;
 }
 
 .item {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   min-width: 0;
   font-family: var(--font-satoshi);
   text-align: center;
@@ -132,24 +135,48 @@
   object-fit: contain;
 }
 
+.googleLogo {
+  width: 62px;
+  height: 62px;
+}
+
+.badgeIcon {
+  width: 176px;
+  height: auto;
+  margin-top: -2px;
+}
+
 .value {
   display: block;
-  margin-top: 16px;
+  margin-top: 18px;
   color: var(--color-navy);
-  font-size: 48px;
+  font-size: 50px;
   font-weight: 500;
-  line-height: 57.6px;
+  line-height: 60px;
   letter-spacing: -0.2px;
+}
+
+.valueSuffix {
+  display: inline-block;
+  margin-left: 6px;
+  color: #ffc107;
+  font-size: 0.82em;
+  line-height: 1;
+  vertical-align: middle;
 }
 
 .label {
   display: block;
-  margin-top: 11px;
+  margin-top: 14px;
   color: #727c8d;
-  font-size: 16px;
+  font-size: 17px;
   font-weight: 500;
-  line-height: 19.2px;
+  line-height: 21px;
   letter-spacing: -0.2px;
+}
+
+.badge .label {
+  margin-top: 22px;
 }
 
 @keyframes statReveal {
@@ -188,7 +215,7 @@
   }
 
   .inner {
-    width: min(100%, var(--site-width));
+    width: min(100%, 1320px);
   }
 
   .starCluster {
@@ -204,12 +231,12 @@
 @media (max-width: 1080px) {
   .stats {
     min-height: auto;
-    padding: 90px 24px;
+    padding: 100px 24px 82px;
   }
 
   .inner {
     height: auto;
-    min-height: 520px;
+    min-height: 560px;
   }
 
   .map {
@@ -217,6 +244,7 @@
     height: 420px;
     object-fit: cover;
     opacity: 0.75;
+    transform: none;
   }
 
   .title {
@@ -226,9 +254,9 @@
 
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 44px 28px;
+    gap: 52px 40px;
     max-width: 720px;
-    margin: 78px auto 0;
+    margin: 92px auto 0;
   }
 
   .starCluster {
@@ -244,7 +272,7 @@
 
 @media (max-width: 680px) {
   .stats {
-    padding: 70px 18px;
+    padding: 82px 18px 64px;
   }
 
   .eyebrow {
@@ -265,13 +293,17 @@
 
   .grid {
     grid-template-columns: 1fr;
-    gap: 32px;
-    margin-top: 58px;
+    gap: 38px;
+    margin-top: 66px;
   }
 
   .value {
     font-size: 42px;
     line-height: 50px;
+  }
+
+  .badgeIcon {
+    width: 146px;
   }
 
   .starCluster,

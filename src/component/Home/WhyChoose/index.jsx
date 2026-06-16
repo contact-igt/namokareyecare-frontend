@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { motion } from "framer-motion";
 import { ArrowRight, Copy } from "lucide-react";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
@@ -17,6 +20,21 @@ function PhotoPanel({ image }) {
 export default function WhyChoose() {
   const { eyebrow, title, description, cta, highlights, images } =
     homeContent.whyChoose;
+
+  const listVariants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, x: -50 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.5, ease: "easeOut" } },
+  };
 
   return (
     <section className={styles.whyChoose} aria-labelledby="why-choose-title">
@@ -41,16 +59,28 @@ export default function WhyChoose() {
             {title}
           </h2>
 
-          <p className={styles.description}>{description}</p>
+          {description && (
+            <p className={styles.description}>{description}</p>
+          )}
 
-          <ul className={styles.list}>
+          <motion.ul
+            className={styles.list}
+            variants={listVariants}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: false, amount: 0.2 }}
+          >
             {highlights.map((item) => (
-              <li key={item} className={styles.listItem}>
+              <motion.li
+                key={item}
+                className={styles.listItem}
+                variants={itemVariants}
+              >
                 <Copy className={styles.listIcon} size={19} strokeWidth={2} />
                 <span>{item}</span>
-              </li>
+              </motion.li>
             ))}
-          </ul>
+          </motion.ul>
 
           <Link href={cta.href} className={styles.cta}>
             {cta.label}

@@ -1,46 +1,25 @@
-import { useEffect, useRef, useState } from "react";
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, ChevronDown, Clock3 } from "lucide-react";
+import { motion } from "framer-motion";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
 
 export default function DoctorsAppointment() {
-  const sectionRef = useRef(null);
-  const [isVisible, setIsVisible] = useState(false);
   const { eyebrow, title, allDoctors, doctors, appointment } =
     homeContent.doctorsAppointment;
+
+  const [largeDoctor, secondDoctor, thirdDoctor] = doctors;
 
   const handleSubmit = (event) => {
     event.preventDefault();
   };
 
-  useEffect(() => {
-    const section = sectionRef.current;
-
-    if (!section || isVisible) {
-      return undefined;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.22 },
-    );
-
-    observer.observe(section);
-
-    return () => observer.disconnect();
-  }, [isVisible]);
-
   return (
     <section
-      ref={sectionRef}
-      className={`${styles.doctorsSection} ${isVisible ? styles.visible : ""}`}
+      className={styles.doctorsSection}
       aria-labelledby="doctors-title"
     >
       <div className={styles.inner}>
@@ -62,35 +41,87 @@ export default function DoctorsAppointment() {
         </div>
 
         <div className={styles.body}>
-          <div className={styles.cards} aria-label="Experienced doctors">
-            {doctors.map((doctor, index) => (
-              <article
-                className={styles.doctorCard}
-                key={doctor.name}
-                style={{ "--delay": `${index * 130}ms` }}
-              >
-                <div className={styles.doctorImageWrap}>
+          {/* Column 1: Large Doctor Card */}
+          {largeDoctor && (
+            <article className={`${styles.doctorCard} ${styles.largeCard}`} key={largeDoctor.name}>
+              <div className={styles.largeDoctorImageWrap}>
+                <Image
+                  src={largeDoctor.image.src}
+                  alt={largeDoctor.image.alt}
+                  width={largeDoctor.image.width}
+                  height={largeDoctor.image.height}
+                  className={styles.doctorImage}
+                  priority
+                  sizes="(max-width: 768px) 100vw, 440px"
+                />
+              </div>
+              <div className={styles.largeDoctorInfo}>
+                <motion.h3
+                  className={styles.doctorName}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.8 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {largeDoctor.name}
+                </motion.h3>
+                <div className={styles.doctorDesignationWrap}>
+                  {Array.isArray(largeDoctor.designation) ? (
+                    largeDoctor.designation.map((line, idx) => (
+                      <p key={idx} className={styles.doctorDesignation}>
+                        {line}
+                      </p>
+                    ))
+                  ) : (
+                    <p className={styles.doctorDesignation}>
+                      {largeDoctor.designation}
+                    </p>
+                  )}
+                </div>
+                <Link href="/appointment" className={styles.cardButton}>
+                  Get Appointment
+                </Link>
+              </div>
+            </article>
+          )}
+
+          {/* Column 2: Stacked Small Doctor Cards */}
+          <div className={styles.stackedColumn}>
+            {[secondDoctor, thirdDoctor].filter(Boolean).map((doctor) => (
+              <article className={`${styles.doctorCard} ${styles.smallCard}`} key={doctor.name}>
+                <div className={styles.smallDoctorImageWrap}>
                   <Image
                     src={doctor.image.src}
                     alt={doctor.image.alt}
                     width={doctor.image.width}
                     height={doctor.image.height}
-                    className={styles.doctorImage}
+                    className={styles.smallDoctorImage}
                     loading="lazy"
-                    sizes="(max-width: 768px) 78vw, 230px"
+                    sizes="(max-width: 768px) 50vw, 150px"
                   />
                 </div>
-                <h3 className={styles.doctorName}>{doctor.name}</h3>
-                <p className={styles.doctorDesignation}>
-                  {doctor.designation}
-                </p>
-                <Link href="/appointment" className={styles.cardButton}>
-                  Get Appointment
-                </Link>
+                <div className={styles.smallDoctorInfo}>
+                  <motion.h3
+                    className={styles.doctorName}
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.8 }}
+                    transition={{ duration: 0.5, delay: 0.1 }}
+                  >
+                    {doctor.name}
+                  </motion.h3>
+                  <p className={styles.doctorDesignation}>
+                    {doctor.designation}
+                  </p>
+                  <Link href="/appointment" className={styles.cardButton}>
+                    Get Appointment
+                  </Link>
+                </div>
               </article>
             ))}
           </div>
 
+          {/* Column 3: Book An Appointment Form */}
           <form
             className={styles.formCard}
             aria-label={appointment.title}
@@ -103,7 +134,7 @@ export default function DoctorsAppointment() {
             <div className={styles.formBody}>
               <label className={styles.field}>
                 <span className={styles.label}>
-                  {appointment.fields.doctor}
+                  <span>{appointment.fields.doctor}</span>
                   <span className={styles.required} aria-hidden="true">
                     *
                   </span>
@@ -130,7 +161,7 @@ export default function DoctorsAppointment() {
 
               <label className={styles.field}>
                 <span className={styles.label}>
-                  {appointment.fields.name}
+                  <span>{appointment.fields.name}</span>
                   <span className={styles.required} aria-hidden="true">
                     *
                   </span>
@@ -140,7 +171,7 @@ export default function DoctorsAppointment() {
 
               <label className={styles.field}>
                 <span className={styles.label}>
-                  {appointment.fields.phone}
+                  <span>{appointment.fields.phone}</span>
                   <span className={styles.required} aria-hidden="true">
                     *
                   </span>
@@ -149,7 +180,9 @@ export default function DoctorsAppointment() {
               </label>
 
               <label className={styles.field}>
-                <span className={styles.label}>{appointment.fields.date}</span>
+                <span className={styles.label}>
+                  <span>{appointment.fields.date}</span>
+                </span>
                 <span className={styles.inputShell}>
                   <input
                     type="text"
@@ -166,7 +199,7 @@ export default function DoctorsAppointment() {
 
               <label className={styles.field}>
                 <span className={styles.label}>
-                  {appointment.fields.time}
+                  <span>{appointment.fields.time}</span>
                   <span className={styles.required} aria-hidden="true">
                     *
                   </span>

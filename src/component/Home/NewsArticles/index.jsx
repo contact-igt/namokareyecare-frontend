@@ -27,6 +27,7 @@ export default function NewsArticles() {
             <div className={styles.eyebrow}>
               <span className={styles.eyebrowLine} aria-hidden="true" />
               <span>{eyebrow}</span>
+              <span className={styles.eyebrowLine} aria-hidden="true" />
             </div>
             <h2 id="news-section-title" className={styles.title}>
               {title}

@@ -93,7 +93,7 @@
 }
 
 .secondary {
-  background: transparent;
+  background: #eff8fd;
 }
 
 .cardHeader {
@@ -112,17 +112,22 @@
   flex-shrink: 0;
 }
 
-.primary .iconBox {
-  background: rgba(255, 104, 76, 0.1);
+.card:nth-child(1) .iconBox {
+  background: transparent;
   color: var(--color-coral);
 }
 
-.secondary:nth-child(2) .iconBox {
+.card:nth-child(1) .iconBox svg {
+  width: 34px;
+  height: 34px;
+}
+
+.card:nth-child(2) .iconBox {
   background: #cfedff;
   color: #2aa7ff;
 }
 
-.secondary:nth-child(3) .iconBox {
+.card:nth-child(3) .iconBox {
   background: #d8f4e5;
   color: #59c58d;
 }
@@ -167,7 +172,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 16px;
   background: #d6edf8;
   box-shadow: 0 22px 54px rgba(27, 60, 116, 0.12);
 }
@@ -190,38 +195,10 @@
 
 .youtubeFrame {
   z-index: 2;
-}
-
-.playButton {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 76px;
-  height: 76px;
-  border-radius: 50%;
-  background: #2aa7ff;
-  border: none;
-  color: #ffffff;
-  cursor: pointer;
-  box-shadow: 0 10px 25px rgba(42, 167, 255, 0.4), 0 0 0 10px rgba(42, 167, 255, 0.2);
-  transition: all 0.3s ease;
-  z-index: 3;
-}
-
-.playButton:hover {
-  transform: translate(-50%, -50%) scale(1.1);
-  background: #119eff;
-  box-shadow: 0 15px 30px rgba(42, 167, 255, 0.5), 0 0 0 15px rgba(42, 167, 255, 0.25);
-}
-
-.playIcon {
-  width: 28px;
-  height: 28px;
-  margin-left: 4px;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
 }
 
 .arrow {
@@ -282,6 +259,10 @@
 
   .rightContainer {
     max-width: 600px;
+  }
+
+  .videoWrap {
+    aspect-ratio: 16 / 9;
   }
 
   .arrow {

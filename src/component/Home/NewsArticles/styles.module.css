@@ -1,7 +1,8 @@
 .newsSection {
   position: relative;
   width: 100%;
-  background: #ebf6ff; /* Soft ice-blue light background exact match */
+  background: #ffffff;
+  zoom: 0.9;
   padding: 100px 0 120px;
   overflow: hidden;
   box-sizing: border-box;
@@ -9,18 +10,16 @@
 
 .worldMapBg {
   position: absolute;
-  top: 55%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 110%;
-  height: 90%;
-  opacity: 0.12; /* Light subtle world map background */
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   z-index: 1;
 }
 
 .mapImage {
   object-fit: contain;
+  transform: scale(1.04);
 }
 
 .inner {
@@ -54,7 +53,7 @@
 
 .eyebrowLine {
   display: inline-block;
-  width: 72px;
+  width: 100px;
   height: 2px;
   border-radius: 30px;
   background: var(--color-coral, #ff684c);
@@ -80,37 +79,29 @@
 
 .card {
   background: #ffffff;
-  border-radius: 12px;
-  overflow: hidden;
+  border-radius: 16px;
+  padding: 16px;
   box-shadow: 0 15px 45px rgba(27, 60, 116, 0.04);
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 25px 55px rgba(27, 60, 116, 0.09);
+  box-sizing: border-box;
 }
 
 .imageWrap {
   position: relative;
   width: 100%;
   height: 240px;
+  border-radius: 12px;
+  overflow: hidden;
   background-color: #f0f4f8; /* loading placeholder state */
 }
 
 .articleImg {
   object-fit: cover;
-  transition: transform 0.5s ease;
-}
-
-.card:hover .articleImg {
-  transform: scale(1.05);
 }
 
 .cardBody {
-  padding: 30px 24px;
+  padding: 24px 8px 10px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -145,7 +136,7 @@
   margin: 0 0 24px 0;
   font-family: var(--font-satoshi), sans-serif;
   font-size: 22px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 30px;
   letter-spacing: -0.2px;
   flex: 1;
@@ -166,16 +157,11 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-satoshi), sans-serif;
-  color: #2aa7ff;
+  color: var(--color-coral, #ff684c);
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
-  transition: gap 0.2s ease;
   width: fit-content;
-}
-
-.learnMore:hover {
-  gap: 12px;
 }
 
 .arrowIcon {
@@ -224,6 +210,6 @@
     width: 44px;
   }
   .cardBody {
-    padding: 24px 20px;
+    padding: 20px 4px 10px;
   }
 }

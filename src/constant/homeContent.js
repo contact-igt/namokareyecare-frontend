@@ -1,6 +1,6 @@
 export const homeContent = {
   banner: {
-    eyebrow: "Expertise Your Eyes Deserve",
+    eyebrow: "Precision - Compassion - Technology",
     title: [
       "Restore",
       "Confidence",
@@ -8,7 +8,7 @@ export const homeContent = {
       "Oculoplasty Care",
     ],
     description:
-      "Delivered with surgical precision, medical safety, and a patient-first approach.",
+      "At Namokar Eye & Oculoplasty Centre, every treatment plan is designed around your individual needs, helping you achieve better vision, improved comfort, and renewed confidence.",
     cta: {
       label: "Book Appointment Now",
       href: "/appointment",
@@ -21,7 +21,7 @@ export const homeContent = {
     },
   },
   services: {
-    eyebrow: "Precision - Compassion - Technology",
+    eyebrow: "Our Specialized Services",
     title: "Our Services",
     items: [
       {
@@ -45,7 +45,7 @@ export const homeContent = {
         icon: "aesthetic",
       },
       {
-        title: "Eye Plastic & Reconstructive",
+        title: "Reconstructive Oculoplasty",
         href: "/services/eye-plastic-reconstructive",
         icon: "reconstructive",
       },
@@ -58,18 +58,19 @@ export const homeContent = {
   },
   whyChoose: {
     eyebrow: "28+ Years of Experiences",
-    title: "Why Choose Us",
-    description:
-      "Purpose-built centre with advanced operating theatres, sterilized environments, and the latest ophthalmic equipment.",
+    title: "Why Choose Namokar Eye\n& Oculoplasty Centre",
+    description: "",
     cta: {
       label: "Learn more",
       href: "/about-us",
     },
     highlights: [
-      "Modern Facility",
-      "Cashless & EMI Options",
-      "Experienced Specialists",
-      "Insurance Support",
+      "30+ Years of Eye Care Experience",
+      "Fellowship in Aesthetic Oculoplasty, Barcelona",
+      "Observership at Johns Hopkins, USA",
+      "NABH Certified Eye Centre",
+      "Specialized Oculoplasty Expertise",
+      "Advanced Cataract & Eye Care Services",
     ],
     images: [
       {
@@ -97,7 +98,7 @@ export const homeContent = {
         number: "01",
         title: "Eyelid Surgery",
         description:
-          "Having an in-house team of expt medical writers and editors make all the difference in terms.",
+          "Treatment for functional and cosmetic eyelid concerns including drooping eyelids and excess eyelid skin.",
         image: {
           src: "/assets/droping.jpg",
           alt: "Ophthalmology clinic eye exam setup",
@@ -107,7 +108,7 @@ export const homeContent = {
         number: "02",
         title: "Droopy Eyelid Correction",
         description:
-          "Having an in-house team of expt medical writers and editors make all the difference in terms.",
+          "Specialized procedures designed to improve eyelid position and restore confidence.",
         image: {
           src: "/assets/droopy_eylid_correction.jpg",
           alt: "Oculoplastic micro-surgical ophthalmology procedure",
@@ -115,9 +116,9 @@ export const homeContent = {
       },
       {
         number: "03",
-        title: "Under-Eye Bag Removal",
+        title: "Under-Eye Bag Correction",
         description:
-          "Having an in-house team of expt medical writers and editors make all the difference in terms.",
+          "Aesthetic oculoplasty procedures aimed at reducing puffiness and rejuvenating the eye area.",
         image: {
           src: "/assets/under_bags.jpeg",
           alt: "Clinical planning marking for under-eye bags cosmetic correction",
@@ -127,7 +128,7 @@ export const homeContent = {
         number: "04",
         title: "Watering Eye Treatment",
         description:
-          "Having an in-house team of expt medical writers and editors make all the difference in terms.",
+          "Evaluation and treatment for tear drainage disorders and excessive watering.",
         image: {
           src: "/assets/eye_Lid.jpg",
           alt: "Vision and pediatric trial frame clinical check",
@@ -144,7 +145,7 @@ export const homeContent = {
       width: 606,
       height: 653,
       youtubeEmbedUrl:
-        "https://www.youtube.com/embed/h1j-b8bDo6A?autoplay=1&mute=1&loop=1&playlist=h1j-b8bDo6A&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&disablekb=1&autohide=1",
+        "https://www.youtube.com/embed/h1j-b8bDo6A?controls=1&rel=0&modestbranding=1&playsinline=1",
     },
     arrow: {
       src: "/assets/Home/why-choice-arrow.png",
@@ -162,29 +163,29 @@ export const homeContent = {
       {
         variant: "primary",
         icon: "copy",
-        title: "Barcelona Fellowship & Johns Hopkins Observership",
+        title: "Oculoplasty Expertise",
         description:
-          "We are a team of qualified and experienced doctors provide quality services.",
+          "Focused care for eyelid, orbital and lacrimal conditions.",
       },
       {
         variant: "secondary",
         icon: "microscope",
-        title: "NABH Accredited Eye Centre in North Delhi",
+        title: "NABH Certified Eye Centre in North Delhi",
         description:
-          "Experience personalized care from our expert medical team.",
+          "Quality-driven eye care standards.",
       },
       {
         variant: "secondary",
         icon: "stethoscope",
         title: "Doctor-Led Specialized Care",
         description:
-          "Our experienced doctors are dedicated to providing exceptional care.",
+          "Personalized treatment planning by experienced specialists.",
       },
       {
         variant: "primary",
-        icon: "support",
-        title: "24/7 Strong Support",
-        description: "Having an in-house team of expt medical writers and editors.",
+        icon: "history",
+        title: "International Training",
+        description: "Barcelona Fellowship & Johns Hopkins Observership.",
       },
     ],
   },
@@ -205,17 +206,25 @@ export const homeContent = {
     },
     items: [
       {
-        value: "8900+",
-        label: "Happy patients",
+        value: "4.9",
+        countTo: 4.9,
+        decimals: 1,
+        durationMs: 1300,
+        valueSuffix: "★",
+        label: "Google Rating",
         icon: {
-          src: "/assets/Home/stats-happy-patients.png",
+          src: "/assets/Home/google-logo-9808.png",
           alt: "",
-          width: 60,
-          height: 60,
+          width: 58,
+          height: 58,
+          className: "googleLogo",
         },
       },
       {
-        value: "28+",
+        value: "30+",
+        countTo: 30,
+        durationMs: 1350,
+        valueSuffix: "+",
         label: "Years Served",
         icon: {
           src: "/assets/Home/stats-years-served.png",
@@ -225,8 +234,11 @@ export const homeContent = {
         },
       },
       {
-        value: "10+",
-        label: "Expert Doctors",
+        value: "299+",
+        countTo: 299,
+        durationMs: 1500,
+        valueSuffix: "+",
+        label: "Google Reviews",
         icon: {
           src: "/assets/Home/stats-expert-doctors.png",
           alt: "",
@@ -235,13 +247,14 @@ export const homeContent = {
         },
       },
       {
-        value: "150+",
-        label: "Award Wining",
+        label: "NABH Certified Centre",
+        variant: "badge",
         icon: {
-          src: "/assets/Home/stats-award-winning.png",
+          src: "/assets/Footer/Patient_saftey_logo.png",
           alt: "",
-          width: 60,
-          height: 60,
+          width: 500,
+          height: 273,
+          className: "badgeIcon",
         },
       },
     ],
@@ -256,20 +269,13 @@ export const homeContent = {
     doctors: [
       {
         name: "Dr. Poonam Jain",
-        designation: "MBBS, MS, Medical Director",
+        designation: [
+          "Medical Director & Senior Ophthalmologist",
+          "Oculoplasty Specialist",
+        ],
         image: {
           src: "/assets/Doctors/Main_doctor.png",
           alt: "Dr. Poonam Jain",
-          width: 1200,
-          height: 1200,
-        },
-      },
-      {
-        name: "Dr. Shekhar Sanghi",
-        designation: "Consultant Cataract and",
-        image: {
-          src: "/assets/Doctors/Doctor2.png",
-          alt: "Dr. Shekhar Sanghi",
           width: 1200,
           height: 1200,
         },
@@ -280,6 +286,16 @@ export const homeContent = {
         image: {
           src: "/assets/Doctors/doctor3.png",
           alt: "Dr. Ankur Gupta",
+          width: 1200,
+          height: 1200,
+        },
+      },
+      {
+        name: "Dr. Shekhar Sanghi",
+        designation: "Consultant Cataract and",
+        image: {
+          src: "/assets/Doctors/Doctor2.png",
+          alt: "Dr. Shekhar Sanghi",
           width: 1200,
           height: 1200,
         },

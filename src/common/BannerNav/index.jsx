@@ -9,7 +9,7 @@ const itemsWithChevrons = new Set(["Home", "Doctors", "Services"]);
 
 export default function BannerNav() {
   const [isOpen, setIsOpen] = useState(false);
-  const { logo, badge, navItems, appointment } = headerContent;
+  const { logo, navItems, appointment } = headerContent;
 
   return (
     <header className={styles.header}>
@@ -23,16 +23,6 @@ export default function BannerNav() {
             className={styles.logo}
             priority
           />
-          <span className={styles.badgeShell} aria-label={badge.alt}>
-            <Image
-              src={badge.src}
-              alt={badge.alt}
-              width={badge.width}
-              height={badge.height}
-              className={styles.badge}
-              priority
-            />
-          </span>
         </Link>
 
         <nav className={styles.nav} aria-label="Primary navigation">
