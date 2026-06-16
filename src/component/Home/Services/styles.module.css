@@ -2,7 +2,7 @@
   width: 100%;
   height: auto;
   min-height: 660px;
-  padding-bottom: 120px;
+  padding-bottom: 60px;
   overflow: hidden;
   background: #ffffff;
 }
@@ -11,7 +11,7 @@
   width: var(--site-width);
   height: 100%;
   margin: 0 auto;
-  padding-top: 130px;
+  padding-top: 60px;
 }
 
 .eyebrow {

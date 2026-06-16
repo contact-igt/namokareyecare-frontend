@@ -57,7 +57,7 @@ export const homeContent = {
     ],
   },
   whyChoose: {
-    eyebrow: "28+ Years of Experiences",
+    eyebrow: "30+ Years of Experiences",
     title: "Why Choose Namokar Eye\n& Oculoplasty Centre",
     description: "",
     cta: {
@@ -66,11 +66,10 @@ export const homeContent = {
     },
     highlights: [
       "30+ Years of Eye Care Experience",
-      "Fellowship in Aesthetic Oculoplasty, Barcelona",
-      "Observership at Johns Hopkins, USA",
-      "NABH Certified Eye Centre",
+      "Advanced Eye Care Infrastructure",
       "Specialized Oculoplasty Expertise",
-      "Advanced Cataract & Eye Care Services",
+      "NABH Certified Eye Centre",
+      "Cashless & EMI Support",
     ],
     images: [
       {
@@ -137,7 +136,7 @@ export const homeContent = {
     ],
   },
   treatmentVideo: {
-    eyebrow: "28+ Years of Experiences",
+    eyebrow: "30+ Years of Experiences",
     title: "Specialized Treatments for Functional & Aesthetic Eye Care",
     media: {
       src: "/assets/Home/why-choice-hospital.png",

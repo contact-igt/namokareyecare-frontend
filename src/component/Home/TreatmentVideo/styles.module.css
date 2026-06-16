@@ -3,7 +3,7 @@
   width: 100%;
   overflow: hidden;
   background: var(--color-hero-bg);
-  padding: 100px 0 140px;
+  padding: 60px 0 60px;
 }
 
 .inner {
@@ -79,7 +79,7 @@
   flex-direction: column;
   gap: 12px;
   width: 100%;
-  min-height: 185px;
+  min-height: 135px;
   padding: 22px 18px;
   border-radius: 12px;
   box-sizing: border-box;
