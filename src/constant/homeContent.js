@@ -55,9 +55,13 @@ export const homeContent = {
         icon: "exams",
       },
     ],
+    cta: {
+      label: "View All Services",
+      href: "/services",
+    },
   },
   whyChoose: {
-    eyebrow: "30+ Years of Experiences",
+    eyebrow: "India's Trusted Oculoplasty Specialists",
     title: "Why Choose Namokar Eye\n& Oculoplasty Centre",
     description: "",
     cta: {
@@ -65,11 +69,11 @@ export const homeContent = {
       href: "/about-us",
     },
     highlights: [
-      "30+ Years of Eye Care Experience",
-      "Advanced Eye Care Infrastructure",
-      "Specialized Oculoplasty Expertise",
-      "NABH Certified Eye Centre",
-      "Cashless & EMI Support",
+      { label: "30+ Years of Eye Care Experience", icon: "Award" },
+      { label: "Advanced Eye Care Infrastructure", icon: "Building2" },
+      { label: "Specialized Oculoplasty Expertise", icon: "Eye" },
+      { label: "NABH Certified Eye Centre", icon: "ShieldCheck" },
+      { label: "Cashless & EMI Support", icon: "CreditCard" },
     ],
     images: [
       {
@@ -136,7 +140,7 @@ export const homeContent = {
     ],
   },
   treatmentVideo: {
-    eyebrow: "30+ Years of Experiences",
+    eyebrow: "30+ Years of Experience",
     title: "Specialized Treatments for Functional & Aesthetic Eye Care",
     media: {
       src: "/assets/Home/why-choice-hospital.png",
@@ -161,8 +165,8 @@ export const homeContent = {
     cards: [
       {
         variant: "primary",
-        icon: "copy",
-        title: "Oculoplasty Expertise",
+        icon: "eye",
+        title: "Oculoplasty\nExpertise",
         description:
           "Focused care for eyelid, orbital and lacrimal conditions.",
       },
@@ -176,14 +180,14 @@ export const homeContent = {
       {
         variant: "secondary",
         icon: "stethoscope",
-        title: "Doctor-Led Specialized Care",
+        title: "Doctor - Led \n Specialized Care",
         description:
           "Personalized treatment planning by experienced specialists.",
       },
       {
         variant: "primary",
         icon: "history",
-        title: "International Training",
+        title: "International\nTraining",
         description: "Barcelona Fellowship & Johns Hopkins Observership.",
       },
     ],
@@ -246,7 +250,7 @@ export const homeContent = {
         },
       },
       {
-        label: "NABH Certified Centre",
+        label: "NABH\nCertified Centre",
         variant: "badge",
         icon: {
           src: "/assets/Footer/Patient_saftey_logo.png",
@@ -259,7 +263,7 @@ export const homeContent = {
     ],
   },
   doctorsAppointment: {
-    eyebrow: "Doctor's",
+    eyebrow: "Doctors",
     title: "Meet Our Experienced Doctor",
     allDoctors: {
       label: "See All Doctors",

@@ -1,252 +1,235 @@
 .footer {
-  position: relative;
   width: 100%;
-  overflow: hidden;
-  background: #07164c;
+  background: linear-gradient(180deg, #07164c 0%, #00264d 100%);
   color: #ffffff;
-  padding: 78px 0 36px;
+  padding-top: 64px;
+  padding-bottom: 24px;
   font-family: var(--font-satoshi), sans-serif;
 }
 
-.frame {
-  width: min(calc(100% - 56px), 1410px);
-  margin: 0 auto;
-}
-
 .inner {
-  display: grid;
-  grid-template-columns: minmax(0, 1.9fr) minmax(0, 0.72fr) minmax(0, 0.95fr) minmax(0, 1fr);
-  gap: 48px 54px;
-  align-items: start;
-  padding-bottom: 62px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 48px;
 }
 
+/* 4-column grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 48px 32px;
+  margin-bottom: 64px;
+  align-items: start;
+}
+
+/* Brand column */
 .brandCol {
   display: flex;
   flex-direction: column;
-  max-width: 510px;
+  align-items: flex-start;
+}
+
+.logoWrap {
+  display: inline-block;
+  margin-bottom: 24px;
 }
 
 .logo {
+  height: 80px;
+  width: auto;
+  object-fit: contain;
   display: block;
-  width: min(100%, 482px);
-  height: auto;
+  filter: brightness(0) invert(1);
 }
 
-.tagline {
-  max-width: 470px;
-  margin: 34px 0 0 10px;
-  color: rgba(243, 246, 255, 0.96);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.58;
-}
-
-.colTitle {
-  margin: 0 0 24px;
-  color: #ff744f;
-  font-size: 21px;
-  font-weight: 600;
-  line-height: 1.2;
-}
-
-.linkList,
-.hoursList,
-.phoneList {
-  list-style: none;
+.description {
+  color: #94a3b8;
+  font-size: 13.5px;
+  line-height: 1.65;
+  max-width: 300px;
   margin: 0;
-  padding: 0;
-}
-
-.linkList {
-  display: flex;
-  flex-direction: column;
-  gap: 17px;
-}
-
-.link {
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.2;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.link:hover,
-.phoneLink:hover {
-  color: #ff744f;
-}
-
-.hoursList {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.hourRow {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-}
-
-.days,
-.hoursVal {
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.25;
-  white-space: nowrap;
-}
-
-.contactCol {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.subCol {
-  display: flex;
-  flex-direction: column;
-}
-
-.addressText {
-  margin: 0;
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.28;
-  white-space: pre-line;
-}
-
-.phoneTitle {
-  margin-bottom: 8px;
-}
-
-.phoneLink {
-  color: #ffffff;
-  font-size: 15px;
-  line-height: 1.3;
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.divider {
-  height: 1px;
-  background: rgba(39, 189, 255, 0.85);
-}
-
-.bottomBar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 66px;
-}
-
-.copyright {
-  margin: 0;
-  color: rgba(255, 255, 255, 0.58);
-  font-size: 16px;
-  line-height: 1;
 }
 
 .socials {
   display: flex;
-  align-items: center;
-  gap: 18px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
-.socialIcon {
+.socialBtn {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  color: #2eb0ff;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #94a3b8;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.socialBtn:hover {
+  color: #f97316;
+  border-color: rgba(249, 115, 22, 0.4);
+  background: rgba(249, 115, 22, 0.06);
+}
+
+/* Generic column */
+.col {
+  display: flex;
+  flex-direction: column;
+}
+
+.colTitle {
+  margin: 0 0 24px;
+  color: #f97316;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Expert Care */
+.doctorName {
+  margin: 0 0 6px;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.doctorInfo {
+  margin: 0;
+  color: #94a3b8;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+/* Quick Contact */
+.contactList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.contactItem {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.iconBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f97316;
+  flex-shrink: 0;
+}
+
+.iconBoxTop {
+  align-self: flex-start;
+  margin-top: 2px;
+}
+
+.contactLink {
+  color: #cbd5e1;
+  font-size: 14px;
+  text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.socialIcon:hover {
-  color: #7ed1ff;
+.contactLink:hover {
+  color: #ffffff;
 }
 
-@media (max-width: 1280px) {
-  .frame {
-    width: min(calc(100% - 44px), 1280px);
-  }
-
-  .inner {
-    grid-template-columns: minmax(0, 1.4fr) minmax(0, 0.8fr) minmax(0, 0.95fr) minmax(0, 1fr);
-    gap: 40px 34px;
-  }
-
-  .logo {
-    width: min(100%, 430px);
-  }
+/* Location */
+.locationItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
-@media (max-width: 980px) {
-  .footer {
-    padding: 64px 0 30px;
-  }
+.locationText {
+  margin: 0;
+  color: #cbd5e1;
+  font-size: 14px;
+  line-height: 1.65;
+  white-space: pre-line;
+}
 
-  .inner {
+/* Bottom bar */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 32px;
+  gap: 16px;
+}
+
+.copyright {
+  margin: 0;
+  color: #64748b;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.poweredBy {
+  margin: 0;
+  color: #64748b;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.poweredByBrand {
+  color: #249b72;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 42px 34px;
-    padding-bottom: 46px;
-  }
-
-  .brandCol {
-    max-width: none;
-  }
-
-  .tagline {
-    margin-left: 0;
-  }
-
-  .bottomBar {
-    padding-top: 42px;
+    gap: 42px 32px;
   }
 }
 
 @media (max-width: 640px) {
   .footer {
-    padding: 56px 0 28px;
-  }
-
-  .frame {
-    width: calc(100% - 32px);
+    padding-top: 48px;
+    padding-bottom: 20px;
   }
 
   .inner {
+    padding: 0 20px;
+  }
+
+  .grid {
     grid-template-columns: 1fr;
     gap: 36px;
-    padding-bottom: 38px;
+    margin-bottom: 48px;
   }
 
-  .logo {
-    width: min(100%, 320px);
-  }
-
-  .tagline {
+  .description {
     max-width: 100%;
-    margin-top: 26px;
-    font-size: 15px;
-  }
-
-  .colTitle {
-    font-size: 20px;
-  }
-
-  .link,
-  .days,
-  .hoursVal,
-  .addressText,
-  .phoneLink {
-    font-size: 15px;
   }
 
   .bottomBar {
     flex-direction: column;
     align-items: flex-start;
-    gap: 18px;
-    padding-top: 32px;
+    gap: 12px;
   }
 }

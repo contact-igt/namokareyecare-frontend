@@ -52,7 +52,7 @@ export default function DoctorsAppointment() {
                   height={largeDoctor.image.height}
                   className={styles.doctorImage}
                   priority
-                  sizes="(max-width: 768px) 100vw, 440px"
+                  sizes="(max-width: 768px) 100vw, 560px"
                 />
               </div>
               <div className={styles.largeDoctorInfo}>
@@ -97,7 +97,7 @@ export default function DoctorsAppointment() {
                     height={doctor.image.height}
                     className={styles.smallDoctorImage}
                     loading="lazy"
-                    sizes="(max-width: 768px) 50vw, 150px"
+                    sizes="(max-width: 768px) 50vw, 140px"
                   />
                 </div>
                 <div className={styles.smallDoctorInfo}>
@@ -122,6 +122,7 @@ export default function DoctorsAppointment() {
           </div>
 
           {/* Column 3: Book An Appointment Form */}
+          <div className={styles.formWrapper}>
           <form
             className={styles.formCard}
             aria-label={appointment.title}
@@ -220,6 +221,7 @@ export default function DoctorsAppointment() {
               </button>
             </div>
           </form>
+          </div>
         </div>
       </div>
     </section>

@@ -3,12 +3,13 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useInView } from "framer-motion";
-import { Clock3, Copy, Microscope, Stethoscope, History } from "lucide-react";
+import { Clock3, Copy, Eye, Microscope, Stethoscope, History } from "lucide-react";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
 
 const cardIcons = {
   copy: Copy,
+  eye: Eye,
   microscope: Microscope,
   stethoscope: Stethoscope,
   support: Clock3,

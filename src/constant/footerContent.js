@@ -5,40 +5,43 @@ export const footerContent = {
     width: 1120,
     height: 428,
   },
-  tagline:
-    "Dedicated to providing expert eye care with advanced ophthalmic and oculoplasty treatments to ensure your vision, well-being, and a healthier future.",
-  links: {
-    title: "Links",
-    items: [
-      { label: "About Us", href: "/about" },
-      { label: "Doctors", href: "/doctors" },
-      { label: "Appointment", href: "/appointment" },
-      { label: "Privacy Policy", href: "/privacy-policy" },
-      { label: "Terms & Condition", href: "/terms" },
-      { label: "FAQ", href: "/faq" },
-    ],
-  },
-  hours: {
-    title: "Opening Hours",
-    schedule: [
-      { days: "Mon - Sat:", hours: "9 AM - 4 PM" },
-      { days: "Sunday:", hours: "Closed" },
-    ],
-  },
-  contact: {
-    address: {
-      title: "Address",
-      value:
-        "13 A, near SATYAWATI COLLEGE,\nopposite Madrina Restaurant, Pocket A,\nPhase 3, Ashok Vihar, Delhi, 110052",
-    },
-    phone: {
-      title: "Phone",
-      numbers: ["+91-9810419720"],
-    },
-  },
-  copyright: "© 2026",
+  description:
+    "NAMOKAR EYE & OCULOPLASTY CENTRE is a well equipped, state of the art, dedicated eye centre focussing on personalized, high quality patient care.",
   socials: [
-    { platform: "facebook", href: "https://facebook.com", icon: "facebook" },
-    { platform: "linkedin", href: "https://linkedin.com", icon: "linkedin" },
+    {
+      platform: "Facebook",
+      href: "https://www.facebook.com/namokareyebydrpoonamjain/",
+      ariaLabel: "Facebook",
+    },
+    {
+      platform: "Instagram",
+      href: "https://www.instagram.com/itsdrpoonamjain/",
+      ariaLabel: "Instagram",
+    },
+    {
+      platform: "YouTube",
+      href: "https://www.youtube.com/@dr.poonamjain-namokareyeoc5696",
+      ariaLabel: "YouTube",
+    },
   ],
+  expertCare: {
+    title: "Expert Care",
+    doctor: {
+      name: "Doctor: Dr. Poonam Jain",
+      qualifications: "MBBS, MS, Medical Director & Senior Ophthalmologist.",
+      experience: "25+ years in Ophthalmology & Oculoplasty.",
+    },
+  },
+  quickContact: {
+    title: "Quick Contact",
+    phone: "+91-9810419720",
+    email: "info@namokareye.com",
+  },
+  location: {
+    title: "Location",
+    address: "13 A, Pocket-A, Phase-3 Ashok Vihar,\nNear Satyawati College,\nNew Delhi-110052",
+  },
+  copyright: "© 2026 Namokar Eye Clinic. All rights reserved.",
+  poweredBy: "Invictus Global Tech Pvt Ltd",
 };
+

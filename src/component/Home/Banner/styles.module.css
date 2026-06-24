@@ -12,7 +12,7 @@
   inset: 0;
   background-image: url("/assets/Home/new_background.png");
   background-repeat: no-repeat;
-  background-position: 64% center;
+  background-position: 55% center;
   background-size: auto 116%;
 }
 
@@ -22,6 +22,7 @@
   width: min(calc(100% - 56px), 1440px);
   margin: 0 auto;
   padding: 38px 0 84px;
+  padding-left: 20px;
 }
 
 .copy {
@@ -73,7 +74,7 @@
   font-family: var(--font-satoshi);
   color: #111111;
   font-size: clamp(20px, 1.35vw, 23px);
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.5;
 }
 

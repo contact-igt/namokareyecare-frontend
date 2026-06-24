@@ -1,10 +1,45 @@
 import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
-import { ArrowLeft, ArrowRight, Star, StarHalf } from "lucide-react";
+import { ArrowLeft, ArrowRight, Star, StarHalf, UserCircle } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { testimonialsContent } from "@/constant/testimonialsContent";
 import RevealOnView from "@/common/RevealOnView";
 import styles from "./styles.module.css";
+
+const CLAMP_LINES = 5;
+const APPROX_CHARS_PER_LINE = 58;
+const MAX_CHARS = CLAMP_LINES * APPROX_CHARS_PER_LINE;
+
+function TestimonialCard({ review }) {
+  const [expanded, setExpanded] = useState(false);
+  const isLong = review.quote.length > MAX_CHARS;
+
+  return (
+    <div className={styles.card}>
+      <p className={`${styles.quote} ${!expanded && isLong ? styles.quoteClamped : ""}`}>
+        &ldquo;{review.quote}&rdquo;
+      </p>
+      {isLong && (
+        <button
+          className={styles.seeMoreBtn}
+          onClick={() => setExpanded((prev) => !prev)}
+        >
+          {expanded ? "See less" : "See more"}
+        </button>
+      )}
+      <div className={styles.stars}>
+        {[...Array(5)].map((_, idx) => {
+          if (idx < Math.floor(review.stars)) {
+            return <Star key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
+          } else if (idx < Math.ceil(review.stars)) {
+            return <StarHalf key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
+          } else {
+            return <Star key={idx} size={16} color="#cfd8e3" className={styles.starIcon} />;
+          }
+        })}
+      </div>
+    </div>
+  );
+}
 
 export default function Testimonials() {
   const { eyebrow, title, reviews } = testimonialsContent;
@@ -105,31 +140,12 @@ export default function Testimonials() {
                   className={styles.testimonialWrapper}
                 >
                 {/* Review Card */}
-                <div className={styles.card}>
-                  <p className={styles.quote}>&ldquo;{review.quote}&rdquo;</p>
-                  <div className={styles.stars}>
-                    {[...Array(5)].map((_, idx) => {
-                      if (idx < Math.floor(review.stars)) {
-                        return <Star key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
-                      } else if (idx < Math.ceil(review.stars)) {
-                        return <StarHalf key={idx} size={16} fill="#2aa7ff" color="#2aa7ff" className={styles.starIcon} />;
-                      } else {
-                        return <Star key={idx} size={16} color="#cfd8e3" className={styles.starIcon} />;
-                      }
-                    })}
-                  </div>
-                </div>
+                <TestimonialCard review={review} />
 
                 {/* Author Metadata below the card aligned nicely with screenshot */}
                 <div className={styles.authorMeta}>
                   <div className={styles.avatarWrap}>
-                    <Image
-                      src={review.author.image}
-                      alt={review.author.name}
-                      width={44}
-                      height={44}
-                      className={styles.avatar}
-                    />
+                    <UserCircle size={44} className={styles.avatar} />
                   </div>
                   <div className={styles.authorInfo}>
                     <h4 className={styles.authorName}>{review.author.name}</h4>

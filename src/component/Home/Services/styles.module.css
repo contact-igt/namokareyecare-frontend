@@ -123,6 +123,32 @@
   line-height: 20px;
 }
 
+.ctaRow {
+  display: flex;
+  justify-content: center;
+  margin-top: 46px;
+}
+
+.cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  min-width: 226px;
+  min-height: 56px;
+  padding: 0 30px;
+  border-radius: 999px;
+  background: var(--color-orange);
+  font-family: var(--font-satoshi);
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 16px 34px rgba(237, 118, 18, 0.16);
+}
+
 @media (max-width: 1400px) {
   .inner {
     width: min(100%, calc(var(--site-width) - 40px));
@@ -187,5 +213,16 @@
   .cardTitle {
     font-size: 24px;
     line-height: 24px;
+  }
+
+  .ctaRow {
+    margin-top: 36px;
+  }
+
+  .cta {
+    max-width: 100%;
+    min-height: 52px;
+    padding: 0 26px;
+    font-size: 17px;
   }
 }

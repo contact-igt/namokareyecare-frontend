@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ArrowRight, Copy } from "lucide-react";
+import { ArrowRight, Award, Building2, Eye, ShieldCheck, CreditCard } from "lucide-react";
 import { homeContent } from "@/constant/homeContent";
 import styles from "./styles.module.css";
 
@@ -70,16 +70,20 @@ export default function WhyChoose() {
             whileInView="show"
             viewport={{ once: false, amount: 0.2 }}
           >
-            {highlights.map((item) => (
-              <motion.li
-                key={item}
-                className={styles.listItem}
-                variants={itemVariants}
-              >
-                <Copy className={styles.listIcon} size={19} strokeWidth={2} />
-                <span>{item}</span>
-              </motion.li>
-            ))}
+            {highlights.map(({ label, icon }) => {
+              const icons = { Award, Building2, Eye, ShieldCheck, CreditCard };
+              const Icon = icons[icon];
+              return (
+                <motion.li
+                  key={label}
+                  className={styles.listItem}
+                  variants={itemVariants}
+                >
+                  <Icon className={styles.listIcon} size={19} strokeWidth={2} />
+                  <span>{label}</span>
+                </motion.li>
+              );
+            })}
           </motion.ul>
 
           <Link href={cta.href} className={styles.cta}>

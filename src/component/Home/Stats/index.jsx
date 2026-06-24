@@ -153,7 +153,11 @@ export default function Stats() {
                 className={`${styles.icon} ${item.icon.className ? styles[item.icon.className] : ""}`}
                 aria-hidden="true"
               />
-              {item.value ? <AnimatedValue item={item} active={isActive} /> : null}
+              {item.value ? (
+                <AnimatedValue item={item} active={isActive} />
+              ) : (
+                <span className={styles.valuePlaceholder} aria-hidden="true" />
+              )}
               <span className={styles.label}>{item.label}</span>
             </article>
           ))}
